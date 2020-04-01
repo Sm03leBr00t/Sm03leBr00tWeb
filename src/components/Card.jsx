@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSpring, animated } from 'react-spring';
-import { Col } from 'react-bootstrap';
+import { Col, Image } from 'react-bootstrap';
 
 const Card = ({ title, imgSrc, subtitle, link }) => {
 	const style = useSpring({
@@ -17,7 +17,7 @@ const Card = ({ title, imgSrc, subtitle, link }) => {
 	return (
 		<Col className="d-inline-block text-center" md={4} sm={12}>
 			<animated.div style={style}>
-				<img src={imgSrc} alt={title} className="g-card-image" />
+				<Image src={imgSrc} alt={title} rounded className="g-card-image"></Image>
 				<CardInfo
 					title={title}
 					subtitle={subtitle}

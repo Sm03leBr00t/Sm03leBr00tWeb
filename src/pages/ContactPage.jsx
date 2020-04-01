@@ -195,6 +195,7 @@ const ContactPage = ({ headtitle }) => {
 					</Form>
 				</animated.div>
 			</Content>
+			<div style={{paddingBottom: "5vh"}}></div>
 			<ToastContainer
 				position="bottom-right"
 				autoClose={5000}

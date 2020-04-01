@@ -12,7 +12,7 @@ export class Carousel extends Component {
 		this.state = {
 			items: [
 				{
-					title: 'Youtube Channel',
+					title: 'Youtube',
 					subtitle: 'Comming soon',
 					link: '#',
 					imgSrc: youtubeChannelImg
@@ -25,7 +25,7 @@ export class Carousel extends Component {
 				},
 				{
 					title: 'Github',
-					subtitle: 'My code and projects',
+					subtitle: 'All my code',
 					link: 'https://github.com/sm03lebr00t',
 					imgSrc: githubImg
 				}
