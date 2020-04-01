@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Container } from 'react-bootstrap';
 
 import githubImg from '../assets/images/githubImg.png';
-import youtubeChannelImg from '../assets/images/youtubeImg.jpg';
-import devtoImg from '../assets/images/devtoImg.jpg';
+import youtubeChannelImg from '../assets/images/youtubeImg.png';
+import devtoImg from '../assets/images/devtoImg.png';
 import Card from './Card';
 
 export class Carousel extends Component {

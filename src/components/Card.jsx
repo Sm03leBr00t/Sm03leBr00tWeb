@@ -17,7 +17,7 @@ const Card = ({ title, imgSrc, subtitle, link }) => {
 	return (
 		<Col className="d-inline-block text-center" md={4} sm={12}>
 			<animated.div style={style}>
-				<Image src={imgSrc} alt={title} rounded className="g-card-image"></Image>
+				<Image src={imgSrc} alt={title} fluid style={{borderRadius: "12px"}}></Image>
 				<CardInfo
 					title={title}
 					subtitle={subtitle}
