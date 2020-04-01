@@ -41,7 +41,7 @@ export default class App extends Component {
 			<Router>
 				<Container className="p-0" fluid>
 					<Navbar className="border-bottom" bg="transparent" expand="lg">
-						<Navbar.Brand>{this.state.title}</Navbar.Brand>
+						<Navbar.Brand><Link className="text-dark" to="/">{this.state.title}</Link></Navbar.Brand>
 
 						<Navbar.Toggle className="border-0" aria-controls="navbar-toggle" />
 						<Navbar.Collapse id="navbar-toggle">

@@ -2,6 +2,9 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Form, Button } from 'react-bootstrap';
 import { useSpring, animated } from 'react-spring';
+import Axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import Hero from '../components/Hero';
 import Content from '../components/Content';
@@ -24,11 +27,29 @@ const ContactPage = ({ headtitle }) => {
 
 	const onSubmit = data => {
 		setLoading(true);
-		setTimeout(() => {
-			console.log('Data', data);
-			setLoading(false);
-			reset();
-		}, 2000);
+		Axios.post('https://formspree.io/xzbapwyk', data)
+			.then(() => {
+				setLoading(false);
+				reset();
+				toast.success('🦄 Ok I will get in Contact with you', {
+					position: 'bottom-right',
+					autoClose: 5000,
+					hideProgressBar: false,
+					closeOnClick: true,
+					pauseOnHover: true,
+					draggable: true
+				});
+			})
+			.catch(() => {
+				toast.error('Hmm, something went wrong', {
+					position: 'bottom-right',
+					autoClose: 5000,
+					hideProgressBar: false,
+					closeOnClick: true,
+					pauseOnHover: true,
+					draggable: true
+				});
+			});
 	};
 
 	return (
@@ -174,6 +195,17 @@ const ContactPage = ({ headtitle }) => {
 					</Form>
 				</animated.div>
 			</Content>
+			<ToastContainer
+				position="bottom-right"
+				autoClose={5000}
+				hideProgressBar={false}
+				newestOnTop={false}
+				closeOnClick
+				rtl={false}
+				pauseOnVisibilityChange
+				draggable
+				pauseOnHover
+			/>
 		</div>
 	);
 };
