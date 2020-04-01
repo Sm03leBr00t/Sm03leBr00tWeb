@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import { Nav, Container, Navbar } from 'react-bootstrap';
 
 import HomePage from './pages/HomePage';
-import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import NotFoundPage from './pages/NotFoundPage';
 import Footer from './components/Footer';
@@ -21,12 +20,12 @@ export default class App extends Component {
 					subtitle: 'Projects, right out of the oven',
 					component: HomePage
 				},
-				{
-					title: 'About',
-					path: '/about',
-					headtitle: 'About me',
-					component: AboutPage
-				},
+				// {
+				// 	title: 'About',
+				// 	path: '/about',
+				// 	headtitle: 'About me',
+				// 	component: AboutPage
+				// },
 				{
 					title: 'Contact',
 					path: '/contact',
