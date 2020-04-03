@@ -43,8 +43,8 @@ export class Carousel extends Component {
 				to={{ opacity: 1, marginTop: 0 }}
 				config={{delay: 1100}}
 			>
-					{item => props => (
-						<Col className="d-inline-block text-center" md={4} sm={12} style={props}>
+					{(item, i) => props => (
+						<Col key={i} className="d-inline-block text-center" md={4} sm={12} style={props}>
 							<Card {...item} />
 						</Col>
 					)}
