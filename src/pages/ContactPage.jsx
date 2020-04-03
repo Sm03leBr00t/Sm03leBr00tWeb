@@ -19,8 +19,10 @@ const ContactPage = ({ headtitle }) => {
 
 	const style = useSpring({
 		opacity: 1,
+		transform: 'translate(0px, 0px)',
 		from: {
-			opacity: 0
+			opacity: 0,
+			transform: 'translate(0px,50px)'
 		},
 		delay: 1000
 	});
@@ -195,7 +197,7 @@ const ContactPage = ({ headtitle }) => {
 					</Form>
 				</animated.div>
 			</Content>
-			<div style={{paddingBottom: "5vh"}}></div>
+			<div style={{ paddingBottom: '5vh' }}></div>
 			<ToastContainer
 				position="bottom-right"
 				autoClose={5000}

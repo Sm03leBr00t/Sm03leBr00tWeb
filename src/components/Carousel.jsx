@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Container } from 'react-bootstrap';
+import { Container, Col } from 'react-bootstrap';
+import { Trail } from 'react-spring/renderprops';
 
 import githubImg from '../assets/images/githubImg.png';
 import youtubeChannelImg from '../assets/images/youtubeImg.png';
@@ -34,7 +35,21 @@ export class Carousel extends Component {
 	}
 
 	makeItems = items => {
-		return items.map((item, i) => <Card key={i} {...item} />);
+		return (
+			<Trail
+				items={items}
+				keys={item => item.key}
+				from={{ opacity: 0, marginTop: 50 }}
+				to={{ opacity: 1, marginTop: 0 }}
+				config={{delay: 1100}}
+			>
+					{item => props => (
+						<Col className="d-inline-block text-center" md={4} sm={12} style={props}>
+							<Card {...item} />
+						</Col>
+					)}
+			</Trail>
+		);
 	};
 
 	render() {
