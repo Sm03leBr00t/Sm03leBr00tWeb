@@ -3,8 +3,8 @@ import { useForm } from 'react-hook-form';
 import { Form, Button } from 'react-bootstrap';
 import { useSpring, animated } from 'react-spring';
 import Axios from 'axios';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { Notyf } from 'notyf';
+import 'notyf/notyf.min.css';
 
 import Hero from '../components/Hero';
 import Content from '../components/Content';
@@ -16,39 +16,44 @@ const ContactPage = ({ headtitle }) => {
 		reValidateMode: 'onChange',
 		submitFocusError: true
 	});
+	const notyf = new Notyf();
 
 	const style = useSpring({
 		opacity: 1,
+		transform: 'translate(0px, 0px)',
 		from: {
-			opacity: 0
+			opacity: 0,
+			transform: 'translate(0px,50px)'
 		},
 		delay: 1000
 	});
 
 	const onSubmit = data => {
 		setLoading(true);
+		// real: https://formspree.io/xzbapwyk
+		// mock: http://localhost:9000/mockContactSubmit
 		Axios.post('https://formspree.io/xzbapwyk', data)
 			.then(() => {
 				setLoading(false);
 				reset();
-				toast.success('🦄 Ok I will get in Contact with you', {
-					position: 'bottom-right',
-					autoClose: 5000,
-					hideProgressBar: false,
-					closeOnClick: true,
-					pauseOnHover: true,
-					draggable: true
-				});
+				notyf.success({
+					message: "Success! I will reach out to you",
+					dismissible: true,
+					duration: 5000,
+					position: {x: "right", y: "bottom"},
+					ripple: true
+				})
 			})
-			.catch(() => {
-				toast.error('Hmm, something went wrong', {
-					position: 'bottom-right',
-					autoClose: 5000,
-					hideProgressBar: false,
-					closeOnClick: true,
-					pauseOnHover: true,
-					draggable: true
-				});
+			.catch((err) => {
+				setLoading(false);
+				notyf.error({
+					message: "Hmmm, something went wrong here",
+					dismissible: true,
+					duration: 5000,
+					position: {x: "right", y: "bottom"},
+					ripple: true
+				})
+				console.log(err)
 			});
 	};
 
@@ -195,18 +200,7 @@ const ContactPage = ({ headtitle }) => {
 					</Form>
 				</animated.div>
 			</Content>
-			<div style={{paddingBottom: "5vh"}}></div>
-			<ToastContainer
-				position="bottom-right"
-				autoClose={5000}
-				hideProgressBar={false}
-				newestOnTop={false}
-				closeOnClick
-				rtl={false}
-				pauseOnVisibilityChange
-				draggable
-				pauseOnHover
-			/>
+			<div style={{ paddingBottom: '5vh' }}></div>
 		</div>
 	);
 };
