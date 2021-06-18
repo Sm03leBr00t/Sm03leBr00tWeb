@@ -11,13 +11,13 @@ export default class App extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			title: 'Sm03leBr00t',
+			title: 'ArcticSpaceFox',
 			pages: [
 				{
 					title: 'Home',
 					path: '/',
-					headtitle: 'Baked to perfection',
-					subtitle: 'Projects, right out of the oven',
+					headtitle: 'Just foxin around!',
+					subtitle: 'Wanna get social? Here are some links',
 					component: HomePage
 				},
 				// {

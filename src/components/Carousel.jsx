@@ -14,20 +14,20 @@ export class Carousel extends Component {
 			items: [
 				{
 					title: 'Youtube',
-					subtitle: 'Comming soon',
+					subtitle: 'I will post videos about solving cyber security issues',
 					link: '#',
 					imgSrc: youtubeChannelImg
 				},
 				{
 					title: 'Dev.to',
 					subtitle: 'Articles and more',
-					link: 'https://dev.to/sm03lebr00t',
+					link: 'https://dev.to/arcticspacefox',
 					imgSrc: devtoImg
 				},
 				{
 					title: 'Github',
 					subtitle: 'All my code',
-					link: 'https://github.com/sm03lebr00t',
+					link: 'https://github.com/arcticspacefox',
 					imgSrc: githubImg
 				}
 			]
